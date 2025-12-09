@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEDOXA | Student-Led Digital Innovation Startup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF2E2E; /* Vibrant red */
+            --secondary: #121212; /* Dark background */
+            --accent: #FF5757; /* Lighter red */
+            --dark: #1A1A1A; /* Dark card background */
+            --light: #F8F9FA;
+            --gray: #2D2D2D;
+            --text: #E8E8E8;
+            --text-light: #B0B0B0;
+            --gold: #FFD700;
+            --gradient: linear-gradient(135deg, #FF2E2E 0%, #FF5757 100%);
+            --gradient-dark: linear-gradient(135deg, #121212 0%, #1A1A1A 100%);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            --shadow-light: 0 10px 30px rgba(255, 46, 46, 0.2);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --border-radius: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background-color: var(--secondary);
+            overflow-x: hidden;
+            background: var(--gradient-dark);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Premium Header */
+        header {
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(18, 18, 18, 0.98);
+            box-shadow: var(--shadow);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            transition: var(--transition);
+        }
+
+        /* Premium Logo - WEDOXA IN WHITE */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 15px;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .logo-img {
+            height: 65px;
+            width: auto;
+            filter: drop-shadow(0 4px 8px rgba(255, 46, 46, 0.3));
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            color: #FFFFFF; /* WHITE TEXT */
+            letter-spacing: -1px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .logo-text::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .logo:hover .logo-img {
+            transform: rotate(-5deg) scale(1.05);
+        }
+
+        .logo:hover .logo-text {
+            transform: translateX(5px);
+        }
+
+        /* Premium Navigation */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-left: 30px;
+            box-shadow: var(--shadow-light);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 46, 46, 0.4);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            transition: var(--transition);
+        }
+
+        /* Premium Hero Section */
+        .hero {
+            padding: 240px 0 150px;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 50% 0%, rgba(255, 46, 46, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+            background: linear-gradient(to right, #ffffff 0%, #ffb8b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+            transform: scaleX(0);
+            animation: underlineExpand 1.5s ease 1s forwards;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 50px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 80px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--gradient);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 17px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            animation: fadeInUp 1s ease 0.4s both;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.8s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(255, 46, 46, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            background: rgba(255, 46, 46, 0.1);
+        }
+
+        /* Premium Sections */
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 3.2rem;
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background: var(--gradient);
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 40px auto 0;
+            font-size: 1.2rem;
+        }
+
+        /* About Section - Startup Journey */
+        .journey-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-item {
+            background: var(--dark);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--primary);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            border-color: rgba(255, 46, 46, 0.3);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Premium Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background: var(--dark);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-20px);
+            border-color: rgba(255, 46, 46, 0.3);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-img {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9));
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            opacity: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .project-tag {
+            background: rgba(255, 46, 46, 0.15);
+            color: var(--primary);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-info {
+            padding: 35px;
+        }
+
+        .project-info h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .project-status {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .progress-container {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 5px;
+            width: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        /* Premium Feedback */
+        .feedback-section {
+            background: var(--dark);
+            border-radius: var(--border-radius);
+            padding: 70px;
+            box-shadow: var(--shadow);
+            margin: 50px 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feedback-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .feedback-form-container {
+            padding-right: 40px;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feedback-form h3, .feedback-reviews h3 {
+            color: white;
+            margin-bottom: 35px;
+            font-size: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 18px 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 46, 46, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 10px;
+        }
+
+        .star {
+            font-size: 2.2rem;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .star:hover,
+        .star.active {
+            color: var(--gold);
+            transform: scale(1.1);
+        }
+
+        .review-list {
+            max-height: 450px;
+            overflow-y: auto;
+            padding-right: 20px;
+        }
+
+        .review-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .review-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(10px);
+        }
+
+        .review-rating {
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        /* Premium Team - UPDATED with Student Details */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+        }
+
+        .team-card {
+            background: var(--dark);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .team-card:hover {
+            transform: translateY(-15px);
+            border-color: rgba(255, 46, 46, 0.3);
+        }
+
+        .team-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .team-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(255, 46, 46, 0.3);
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .team-card:hover .team-img {
+            transform: scale(1.1);
+        }
+
+        .team-info {
+            flex-grow: 1;
+        }
+
+        .team-info h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .team-role {
+            background: rgba(255, 46, 46, 0.15);
+            color: var(--primary);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .education-info {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .education-degree {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .education-university {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .education-location {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .team-bio {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        /* Premium Footer */
+        footer {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 100px 0 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 900;
+            color: #FFFFFF; /* WHITE TEXT */
+            text-decoration: none;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .footer-about p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(10px);
+        }
+
+        .footer-contact p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+        }
+
+        /* Scroll to top */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            box-shadow: var(--shadow-light);
+        }
+
+        .scroll-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-10px) scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes underlineExpand {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 { font-size: 3.8rem; }
+            .section-title h2 { font-size: 2.8rem; }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.2rem; }
+            .section-title h2 { font-size: 2.4rem; }
+            .feedback-container { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+            .team-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle { display: block; }
+            .nav-links {
+                position: fixed;
+                top: 100px;
+                left: 0;
+                width: 100%;
+                background: rgba(18, 18, 18, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 40px;
+                transform: translateY(-150%);
+                transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+                gap: 25px;
+            }
+            .nav-links.active { transform: translateY(0); }
+            .nav-cta { margin: 20px 0 0; }
+            .hero { padding: 180px 0 100px; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-stats { flex-direction: column; gap: 30px; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .feedback-section { padding: 40px; }
+            .team-header { flex-direction: column; text-align: center; }
+            .team-img { margin: 0 auto; }
+            .footer-content { grid-template-columns: 1fr; }
+            .logo-text { font-size: 28px; }
+            .logo-img { height: 55px; }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 { font-size: 2rem; }
+            .section-title h2 { font-size: 2rem; }
+            .btn { padding: 16px 35px; }
+            .scroll-to-top { bottom: 20px; right: 20px; }
+            .logo-text { font-size: 24px; }
+            .logo-img { height: 50px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Premium Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <!-- Premium Logo - WEDOXA IN WHITE -->
+                <a href="#" class="logo">
+                    <img src="https://i.postimg.cc/NL7Z9DQj/Wedoxa.png" alt="WEDOXA Logo" class="logo-img">
+                    <span class="logo-text">WEDOXA</span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Our Journey</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                    <li><a href="#team">Innovators</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <a href="#contact" class="nav-cta">Get in Touch</a>
+                </ul>
+                
+                <div class="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Scroll to top -->
+    <div class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Premium Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Student Innovators <span>Leading Change</span></h1>
+                <p>We started as a student startup with a vision to innovate. Now we're tech leaders creating digital solutions while continuing our academic journeys. Every project is our classroom and every challenge is our opportunity to improve.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn">See Our Projects <i class="fas fa-arrow-right"></i></a>
+                    <a href="#team" class="btn btn-outline">Meet The Innovators</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Student-Led</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">Ongoing Project</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Tech Leaders</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium About - Startup Journey -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Startup Journey</h2>
+                <p>From students to tech leaders, our path of continuous improvement</p>
+            </div>
+            
+            <div class="journey-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2025 - The Beginning</div>
+                    <h3 style="color: white; margin-bottom: 15px;">Two Students, One Vision</h3>
+                    <p style="color: var(--text-light); margin-bottom: 20px;">WEDOXA started as a passion project between two tech students. While pursuing our degrees, we recognized the gap between academic learning and real-world application.</p>
+                    <p style="color: var(--text-light);">Our mission was clear: Create a platform where we could apply classroom knowledge to solve real problems while building our skills portfolio.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2025 October - First Breakthrough</div>
+                    <h3 style="color: white; margin-bottom: 15px;">Lagan Bus Booking System</h3>
+                    <p style="color: var(--text-light); margin-bottom: 20px;">Our first major project addressed a real community need - modernizing local bus transportation. This became our proving ground, combining AI concepts with practical web development.</p>
+                    <p style="color: var(--text-light);">The project taught us project management, client communication, and the importance of user-centered design - lessons no classroom could fully provide.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">Present - Dual Leadership</div>
+                    <h3 style="color: white; margin-bottom: 15px;">Leaders & Lifelong Learners</h3>
+                    <p style="color: var(--text-light); margin-bottom: 20px;">Today, we lead WEDOXA while continuing our academic pursuits. This unique position gives us both theoretical depth from our studies and practical experience from our projects.</p>
+                    <p style="color: var(--text-light); font-weight: 600; color: var(--primary);">
+                        <i class="fas fa-graduation-cap"></i> Student by day, innovator by passion
+                    </p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <div style="background: rgba(255, 46, 46, 0.1); padding: 30px; border-radius: var(--border-radius); border: 1px solid rgba(255, 46, 46, 0.2);">
+                    <h3 style="color: white; margin-bottom: 15px;">Our Learning Philosophy</h3>
+                    <p style="color: var(--text-light);">We believe the best education happens at the intersection of theory and practice. Every project is both a service to our clients and a lesson for our growth.</p>
+                    <div style="display: inline-flex; align-items: center; gap: 15px; margin-top: 20px; background: rgba(255, 46, 46, 0.15); padding: 15px 30px; border-radius: 50px;">
+                        <i class="fas fa-rocket" style="color: var(--primary);"></i>
+                        <span style="font-weight: 700; color: white;">We Start. We Learn. We Improve.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Projects -->
+    <section id="projects" style="background: rgba(0, 0, 0, 0.3);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Innovation Projects</h2>
+                <p>Where academic knowledge meets practical application</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1 - Lagan Bus Booking -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bus Booking System">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="project-tag">Web App</span>
+                                <span class="project-tag">Booking System</span>
+                                <span class="project-tag">Real-time</span>
+                                <span class="project-tag">AI Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Lagan Bus Booking System</h3>
+                        <p style="color: var(--text-light); margin-bottom: 20px;">Our flagship project that combines AI concepts with practical web development. A comprehensive digital solution for modernizing public transportation with real-time booking, seat management, and intelligent routing.</p>
+                        
+                        <div class="project-status">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <span style="color: white; font-weight: 600;">Status:</span>
+                                <span style="background: rgba(255, 193, 7, 0.15); color: #FFC107; padding: 8px 18px; border-radius: 50px; font-weight: 600;">In Development</span>
+                            </div>
+                            <div class="progress-container">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <span style="color: var(--text-light);">Progress</span>
+                                    <span style="color: var(--primary); font-weight: 600;">85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="85"></div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-top: 10px; color: var(--text-light); font-size: 0.9rem;">
+                                    <span>Started: Sep 2025</span>
+                                    <span>Launch: Dec 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 20px 0;">
+                            <div style="color: var(--text-light); font-weight: 600; margin-bottom: 10px;">Technologies Applied:</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                                <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">React</span>
+                                <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">Node.js</span>
+                                <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">MongoDB</span>
+                                <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">AI Algorithms</span>
+                            </div>
+                        </div>
+                        
+                        <a href="https://laganbusbookingntr.github.io/" target="_blank" class="btn" style="width: 100%; margin-top: 20px;">
+                            View Live Demo <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 - Portfolio Platform -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brand Identity">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="project-tag">Portfolio</span>
+                                <span class="project-tag">UI/UX Design</span>
+                                <span class="project-tag">Responsive</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>WEDOXA Portfolio Platform</h3>
+                        <p style="color: var(--text-light); margin-bottom: 20px;">Our own digital showcase that demonstrates our design philosophy and technical capabilities. Built with modern web technologies to reflect our commitment to clean, user-centered design.</p>
+                        
+                        <div class="project-status">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <span style="color: white; font-weight: 600;">Status:</span>
+                                <span style="background: rgba(76, 175, 80, 0.15); color: #4CAF50; padding: 8px 18px; border-radius: 50px; font-weight: 600;">Completed</span>
+                            </div>
+                            <div class="progress-container">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <span style="color: var(--text-light);">Progress</span>
+                                    <span style="color: var(--primary); font-weight: 600;">100%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="100"></div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-top: 10px; color: var(--text-light); font-size: 0.9rem;">
+                                    <span>Started: Dec 2025</span>
+                                    <span>Live Now!</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 20px 0;">
+                            <div style="color: var(--text-light); font-weight: 600; margin-bottom: 10px;">Technologies Used:</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                                <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">HTML5</span>
+                                <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">CSS3</span>
+                                <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">JavaScript</span>
+                                <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">Responsive Design</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="btn btn-outline" style="width: 100%; margin-top: 20px;">
+                            You're viewing it! <i class="fas fa-check-circle"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 - Upcoming -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="E-commerce Platform">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="project-tag">Coming Soon</span>
+                                <span class="project-tag">Mobile First</span>
+                                <span class="project-tag">Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>AI-Powered Learning Platform</h3>
+                        <p style="color: var(--text-light); margin-bottom: 20px;">Our next venture: An intelligent learning system that adapts to individual student needs. Combining our AI expertise with educational technology to create personalized learning experiences.</p>
+                        
+                        <div class="project-status">
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <span style="color: white; font-weight: 600;">Status:</span>
+                                <span style="background: rgba(33, 150, 243, 0.15); color: #2196F3; padding: 8px 18px; border-radius: 50px; font-weight: 600;">Planning Phase</span>
+                            </div>
+                            <div class="progress-container">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                    <span style="color: var(--text-light);">Progress</span>
+                                    <span style="color: var(--primary); font-weight: 600;">30%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" data-width="30"></div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-top: 10px; color: var(--text-light); font-size: 0.9rem;">
+                                    <span>Starting: Jan 2025</span>
+                                    <span>Expected: Jun 2025</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 20px 0;">
+                            <div style="color: var(--text-light); font-weight: 600; margin-bottom: 10px;">Planned Technologies:</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                                <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">Machine Learning</span>
+                                <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">React Native</span>
+                                <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">Python</span>
+                                <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">Adaptive Algorithms</span>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="btn btn-outline" style="width: 100%; margin-top: 20px;">
+                            Coming Soon <i class="fas fa-hourglass-half"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Feedback -->
+    <section id="feedback">
+        <div class="container">
+            <div class="section-title">
+                <h2>Community Feedback</h2>
+                <p>What our clients and peers say about working with student innovators</p>
+            </div>
+            
+            <div class="feedback-section">
+                <div class="feedback-container">
+                    <!-- Feedback Form -->
+                    <div class="feedback-form-container">
+                        <div class="feedback-form">
+                            <h3>Share Your Experience</h3>
+                            <form id="feedbackForm">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="reviewerName" placeholder="Your Full Name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="reviewerEmail" placeholder="Email Address (Optional)">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <select class="form-control" id="projectSelect">
+                                        <option value="">Select Project</option>
+                                        <option value="lagan-bus">Lagan Bus Booking</option>
+                                        <option value="portfolio">WEDOXA Portfolio</option>
+                                        <option value="general">General Feedback</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="rating-stars" id="ratingStars">
+                                        <span class="star" data-value="1"><i class="far fa-star"></i></span>
+                                        <span class="star" data-value="2"><i class="far fa-star"></i></span>
+                                        <span class="star" data-value="3"><i class="far fa-star"></i></span>
+                                        <span class="star" data-value="4"><i class="far fa-star"></i></span>
+                                        <span class="star" data-value="5"><i class="far fa-star"></i></span>
+                                    </div>
+                                    <input type="hidden" id="ratingValue" value="0">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <textarea class="form-control" id="reviewText" rows="5" placeholder="Tell us about your experience with our student-led projects..." required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn" style="width: 100%;">Submit Review <i class="fas fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Reviews Display -->
+                    <div class="feedback-reviews-container">
+                        <div class="feedback-reviews">
+                            <h3>Recent Testimonials</h3>
+                            <div class="review-list" id="reviewList">
+                                <!-- Reviews will be added here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Team - UPDATED WITH STUDENT DETAILS -->
+    <section id="team" style="background: rgba(0, 0, 0, 0.3);">
+        <div class="container">
+            <div class="section-title">
+                <h2>The Innovators Behind WEDOXA</h2>
+                <p>Tech leaders pursuing academic excellence while building the future</p>
+            </div>
+            
+            <div class="team-grid">
+                <!-- HM. AHSHAAN -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <div class="team-img" id="team-img-1">
+                            <!-- Initials added by JS -->
+                        </div>
+                        <div class="team-info">
+                            <h3>HM. AHSHAAN</h3>
+                            <div class="team-role">Tech Nerd & Creator</div>
+                            <div style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 5px;">
+                                <i class="fas fa-graduation-cap"></i> Current Student & Tech Leader
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="education-info">
+                        <div class="education-degree">BSc (Hons) in Artificial Intelligence and Data Science</div>
+                        <div class="education-university">Robert Gordon University, UK</div>
+                        <div class="education-location">Undergraduate Program</div>
+                    </div>
+                    
+                    <div class="team-bio">
+                        Leading our AI initiatives while balancing academic commitments. Specializes in machine learning algorithms, data analytics, and intelligent system design. Believes in applying theoretical AI concepts to solve practical, real-world problems.
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <div style="color: white; font-weight: 600; margin-bottom: 10px;">Areas of Explore:</div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">Machine Learning</span>
+                            <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">Data Science</span>
+                            <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">AI Ethics</span>
+                            <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">Predictive Analytics</span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/mohamed-ahshaan" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/ah.shaan_22" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- MZ. ASLOOF HAQQANI -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <div class="team-img" id="team-img-2">
+                            <!-- Initials added by JS -->
+                        </div>
+                        <div class="team-info">
+                            <h3>MZ. ASLOOF HAQQANI</h3>
+                            <div class="team-role">Tech Nerd & Creator</div>
+                            <div style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 5px;">
+                                <i class="fas fa-graduation-cap"></i> Current Student & Tech Leader
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="education-info">
+                        <div class="education-degree">BSc (Hons) in Information Technology</div>
+                        <div style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 5px;">Specialized in Information System Engineering</div>
+                        <div class="education-university">Sri Lanka Institute of Information Technology, Sri Lanka</div>
+                    </div>
+                    
+                    <div class="team-bio">
+                        Architect of our technical infrastructure with a focus on scalable system design. Combines academic knowledge in information systems with practical experience in building robust, user-centered applications. Passionate about creating efficient digital ecosystems.
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <div style="color: white; font-weight: 600; margin-bottom: 10px;">Areas of Explore:</div>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">System Architecture</span>
+                            <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">Database Design</span>
+                            <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">UI/UX Design</span>
+                            <span style="background: rgba(255, 46, 46, 0.1); color: var(--primary); padding: 6px 15px; border-radius: 50px; font-size: 0.85rem;">Project Management</span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/asloof-haqqani-948967317" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://dribbble.com" target="_blank" title="Dribbble"><i class="fab fa-dribbble"></i></a>
+                        <a href="https://www.instagram.com/asloof_haqqani" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px; padding: 40px; background: rgba(255, 46, 46, 0.1); border-radius: var(--border-radius); border: 1px solid rgba(255, 46, 46, 0.2);">
+                <h3 style="color: white; margin-bottom: 20px;">Our Dual Identity</h3>
+                <p style="color: var(--text-light); max-width: 800px; margin: 0 auto 25px;">
+                    We embrace the unique position of being both students and tech leaders. Our academic pursuits inform our practical work, and our project experiences enhance our academic understanding. This synergy allows us to bring fresh perspectives and cutting-edge knowledge to every project.
+                </p>
+                <div style="display: inline-flex; align-items: center; gap: 15px; background: rgba(255, 46, 46, 0.15); padding: 15px 30px; border-radius: 50px;">
+                    <i class="fas fa-brain" style="color: var(--primary);"></i>
+                    <span style="font-weight: 700; color: white;">Student Minds. Leader Hearts.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">WEDOXA</a>
+                    <p>A student-led tech startup founded by two innovators pursuing academic excellence while building digital solutions. We believe in learning through doing and improving through iteration.</p>
+                    <p style="margin-top: 20px; color: var(--primary); font-weight: 600;">
+                        <i class="fas fa-quote-left"></i> We are students in the classroom, leaders in the digital world
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> Our Journey</a></li>
+                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                        <li><a href="#team"><i class="fas fa-chevron-right"></i> The Innovators</a></li>
+                        <li><a href="#feedback"><i class="fas fa-chevron-right"></i> Feedback</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Connect With Student Innovators</h4>
+                    <p><i class="fas fa-phone"></i> +94 76 463 6737</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Nintavur, Sri Lanka</p>
+                    <p><i class="fas fa-envelope"></i> hello@wedoxa.com</p>
+                    <p><i class="fas fa-university"></i> Student-Led Startup</p>
+                    <div style="margin-top: 30px;">
+                        <a href="mailto:hello@wedoxa.com" class="btn" style="width: 100%;">Collaborate With Us <i class="fas fa-paper-plane"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span id="currentYear">2025</span> WEDOXA Student Innovation Startup. All rights reserved.</p>
+                <p style="margin-top: 15px; color: var(--primary); font-weight: 600;">
+                    Founded by students, led by innovators, driven by improvement
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.querySelector('i').classList.toggle('fa-bars');
+            mobileToggle.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu
+                    navLinks.classList.remove('active');
+                    mobileToggle.querySelector('i').classList.add('fa-bars');
+                    mobileToggle.querySelector('i').classList.remove('fa-times');
+                }
+            });
+        });
+        
+        // Team member initials
+        document.querySelectorAll('.team-img').forEach((img, index) => {
+            const initials = index === 0 ? 'MA' : 'AH';
+            img.innerHTML = `<span style="font-size: 2.5rem; font-weight: 900; color: white;">${initials}</span>`;
+        });
+        
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Scroll to top button
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.scrollY > 500) {
+                scrollToTopBtn.classList.add('active');
+            } else {
+                scrollToTopBtn.classList.remove('active');
+            }
+            
+            // Animate progress bars
+            animateProgressBars();
+        });
+        
+        // Scroll to top
+        document.getElementById('scrollToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animate progress bars
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                const isVisible = (rect.top <= window.innerHeight && rect.bottom >= 0);
+                
+                if (isVisible && !bar.classList.contains('animated')) {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width + '%';
+                    bar.classList.add('animated');
+                }
+            });
+        }
+        
+        // Initialize animations
+        animateProgressBars();
+        
+        // Feedback System
+        const initialReviews = [
+            {
+                id: 1,
+                name: "Transport Ministry Official",
+                rating: 5,
+                text: "The Lagan Bus system shows remarkable insight for student work. The team combines technical skill with practical understanding of transportation needs.",
+                date: "2024-12-15",
+                project: "lagan-bus"
+            },
+            {
+                id: 2,
+                name: "University Professor",
+                rating: 5,
+                text: "Impressive application of theoretical knowledge. These students demonstrate how academic concepts can solve real-world problems effectively.",
+                date: "2024-12-10",
+                project: "general"
+            },
+            {
+                id: 3,
+                name: "Local Business Owner",
+                rating: 4,
+                text: "Working with student innovators brought fresh perspectives to our project. They're professional, eager to learn, and deliver quality work.",
+                date: "2024-12-05",
+                project: "portfolio"
+            }
+        ];
+
+        let reviews = JSON.parse(localStorage.getItem('wedoxaReviews')) || initialReviews;
+        
+        // Star rating
+        const stars = document.querySelectorAll('.star');
+        const ratingValue = document.getElementById('ratingValue');
+        
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const value = parseInt(this.getAttribute('data-value'));
+                ratingValue.value = value;
+                
+                stars.forEach((s, index) => {
+                    if (index < value) {
+                        s.innerHTML = '<i class="fas fa-star"></i>';
+                        s.classList.add('active');
+                    } else {
+                        s.innerHTML = '<i class="far fa-star"></i>';
+                        s.classList.remove('active');
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseover', function() {
+                const value = parseInt(this.getAttribute('data-value'));
+                stars.forEach((s, index) => {
+                    if (index < value) {
+                        s.innerHTML = '<i class="fas fa-star"></i>';
+                    } else {
+                        s.innerHTML = '<i class="far fa-star"></i>';
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseout', function() {
+                const currentRating = parseInt(ratingValue.value);
+                stars.forEach((s, index) => {
+                    if (index < currentRating) {
+                        s.innerHTML = '<i class="fas fa-star"></i>';
+                    } else {
+                        s.innerHTML = '<i class="far fa-star"></i>';
+                    }
+                });
+            });
+        });
+
+        // Display reviews
+        function displayReviews() {
+            const reviewList = document.getElementById('reviewList');
+            reviewList.innerHTML = '';
+            
+            const recentReviews = [...reviews].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
+            
+            recentReviews.forEach(review => {
+                const reviewItem = document.createElement('div');
+                reviewItem.className = 'review-item';
+                
+                let starsHtml = '';
+                for (let i = 1; i <= 5; i++) {
+                    starsHtml += i <= review.rating ? 
+                        '<i class="fas fa-star"></i>' : 
+                        '<i class="far fa-star"></i>';
+                }
+                
+                const date = new Date(review.date);
+                const formattedDate = date.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                
+                reviewItem.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <div>
+                            <div style="font-weight: 700; color: white; margin-bottom: 5px;">${review.name}</div>
+                            <div style="font-size: 0.9rem; color: var(--text-light);">${formattedDate}</div>
+                        </div>
+                    </div>
+                    <div class="review-rating">${starsHtml}</div>
+                    <div style="color: var(--text); line-height: 1.6;">${review.text}</div>
+                `;
+                
+                reviewList.appendChild(reviewItem);
+            });
+        }
+
+        // Handle form submission
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('reviewerName').value.trim();
+            const email = document.getElementById('reviewerEmail').value.trim();
+            const project = document.getElementById('projectSelect').value;
+            const rating = parseInt(document.getElementById('ratingValue').value);
+            const text = document.getElementById('reviewText').value.trim();
+            
+            if (!name || rating === 0 || !text) {
+                alert('Please fill all required fields and select a rating.');
+                return;
+            }
+            
+            const newReview = {
+                id: Date.now(),
+                name: name,
+                rating: rating,
+                text: text,
+                date: new Date().toISOString().split('T')[0],
+                project: project,
+                email: email || null
+            };
+            
+            reviews.unshift(newReview);
+            localStorage.setItem('wedoxaReviews', JSON.stringify(reviews));
+            displayReviews();
+            
+            // Reset form
+            this.reset();
+            ratingValue.value = 0;
+            stars.forEach(star => {
+                star.innerHTML = '<i class="far fa-star"></i>';
+                star.classList.remove('active');
+            });
+            
+            // Success message
+            const submitBtn = this.querySelector('.btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Thank You!';
+            submitBtn.style.background = '#4CAF50';
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = '';
+            }, 2000);
+        });
+
+        // Initial display
+        displayReviews();
+        
+        // Add scroll animations
+        function checkScroll() {
+            const elements = document.querySelectorAll('.project-card, .team-card, .timeline-item, .feedback-section');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        document.querySelectorAll('.project-card, .team-card, .timeline-item, .feedback-section').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(40px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        });
+        
+        window.addEventListener('load', checkScroll);
+        window.addEventListener('scroll', checkScroll);
+    </script>
+</body>
+</html>
